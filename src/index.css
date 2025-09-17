@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Gaming/Crypto Security Design System - All colors MUST be HSL */
+
+@layer base {
+  :root {
+    /* Dark gaming theme with neon accents */
+    --background: 222 26% 7%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 26% 10%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 26% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Gaming purple primary */
+    --primary: 270 91% 65%;
+    --primary-foreground: 222 26% 7%;
+
+    /* Darker secondary for contrast */
+    --secondary: 222 26% 15%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 26% 12%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    /* Neon cyan accent */
+    --accent: 180 100% 70%;
+    --accent-foreground: 222 26% 7%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 26% 20%;
+    --input: 222 26% 15%;
+    --ring: 270 91% 65%;
+
+    /* Custom gaming colors */
+    --neon-green: 120 100% 50%;
+    --gold-rank: 45 100% 70%;
+    --encrypted: 290 100% 80%;
+    --cyber-blue: 195 100% 60%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(270 91% 65% / 0.2), hsl(180 100% 70% / 0.2));
+    --gradient-card: linear-gradient(135deg, hsl(222 26% 10%), hsl(222 26% 12%));
+    --gradient-encrypted: linear-gradient(90deg, hsl(290 100% 80%), hsl(270 91% 65%));
+    
+    /* Shadows */
+    --shadow-neon: 0 0 20px hsl(var(--primary) / 0.3);
+    --shadow-card: 0 4px 20px hsl(222 26% 5% / 0.4);
+    --shadow-encrypted: 0 0 15px hsl(var(--encrypted) / 0.5);
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom animations for gaming effects */
+@layer utilities {
+  .animate-pulse-neon {
+    animation: pulse-neon 2s infinite;
+  }
+  
+  .animate-glitch {
+    animation: glitch 0.3s infinite;
+  }
+}
+
+@keyframes pulse-neon {
+  0%, 100% {
+    box-shadow: 0 0 5px hsl(var(--primary) / 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.8), 0 0 30px hsl(var(--primary) / 0.6);
+  }
+}
+
+@keyframes glitch {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-2px); }
+  40% { transform: translateX(2px); }
+  60% { transform: translateX(-1px); }
+  80% { transform: translateX(1px); }
+  100% { transform: translateX(0); }
+}
